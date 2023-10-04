@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
-import data from "../database/data"
 import { useDispatch } from "react-redux"
+import data from "../database/data"
 
 /** redux action */
 import * as Action from '../redux/question_reducer'
@@ -35,4 +35,13 @@ export const useFetchQuestion = () => {
     }, [dispatch]);
 
     return [getData, setGetData];
+}
+
+/** move action dispatch function*/
+export const MoveNextQuestion = () => async (dispatch) => {
+    try {
+        dispatch(Action.moveNextAction());
+    } catch (error) {
+        console.log(error)
+    }
 }

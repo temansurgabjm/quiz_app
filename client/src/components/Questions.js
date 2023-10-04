@@ -14,7 +14,7 @@ export default function Questions() {
     const trace = useSelector(state => state.questions.trace)
 
     useEffect(() => {
-        console.log(questions)
+        // console.log(questions)
     })
 
     function onSelect() {

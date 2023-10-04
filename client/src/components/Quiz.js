@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import Questions from './Questions'
 
-import { MoveNextQuestion } from '../hooks/FetchQuestion';
+import { MoveNextQuestion, MovePrevQuestion } from '../hooks/FetchQuestion';
 
 /** redux store import */
 import { useSelector, useDispatch } from 'react-redux'
@@ -26,6 +26,8 @@ export default function Quiz() {
     /** Prev button event handler */
     function onPrev() {
         console.log('On Prev Click')
+        /** update the trace value by one using MovePrevQuestion */
+        dispatch(MovePrevQuestion())
     }
 
     return (

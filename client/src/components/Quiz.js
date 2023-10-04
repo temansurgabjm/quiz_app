@@ -8,26 +8,31 @@ import { useSelector, useDispatch } from 'react-redux'
 
 export default function Quiz() {
 
-    const state = useSelector(state => state.questions.trace);
+    // const trace = useSelector(state => state.questions.trace);
+    const { queue, trace} = useSelector(state => state.questions);
     const dispatch = useDispatch()
 
     useEffect(() => {
-        console.log(state)
+        console.log(trace)
     })
 
     /** Next button event handler */
     function onNext() {
         console.log('On Next Click')
 
-        /** update the trace value by one using MoveNextAction */
-        dispatch(MoveNextQuestion())
+        if (trace < queue.length) {
+            /** update the trace value by one using MoveNextAction */
+            dispatch(MoveNextQuestion())
+        }
     }
 
     /** Prev button event handler */
     function onPrev() {
         console.log('On Prev Click')
-        /** update the trace value by one using MovePrevQuestion */
-        dispatch(MovePrevQuestion())
+        if (trace > 0) {
+            /** update the trace value by one using MovePrevQuestion */
+            dispatch(MovePrevQuestion())
+        }
     }
 
     return (
